@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->string('color')->nullable();
             $table->string('rpm')->nullable();
             $table->string('barcode')->nullable();
-            $table->integer('stock')->default(0);
+            $table->decimal('stock')->default(0);
             $table->integer('status')->default(1);
             $table->integer('company_id');
             $table->integer('supplier_id')->nullable();
