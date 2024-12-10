@@ -1,0 +1,413 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "LDSGE API",
+        "description": "LDSGE API",
+        "contact": {
+            "email": "luan@ldcamargo.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "localhost:8000/",
+    "basePath": "api/v1",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Authenticate User",
+                "description": "Authenticate User",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "Checklist name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Logout User",
+                "description": "Logout User",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/me": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Get Authenticated User Information",
+                "description": "Get Authenticated User Information",
+                "operationId": "me",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/refresh": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Refresh Token",
+                "description": "Refresh Token",
+                "operationId": "refresh",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get list of users",
+                "description": "Returns list of users",
+                "operationId": "getUserList",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Store a new user",
+                "description": "Store a new user",
+                "operationId": "storeUser",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "User name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User email",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "registry",
+                        "in": "formData",
+                        "description": "User registry",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "photo",
+                        "in": "formData",
+                        "description": "User profile photo",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "shift_id",
+                        "in": "formData",
+                        "description": "User shift",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "role_id",
+                        "in": "formData",
+                        "description": "User role",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "show data from on user",
+                "description": "show data from on user",
+                "operationId": "showUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update a user",
+                "description": "Update a user",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "User name",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "User email",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "registry",
+                        "in": "formData",
+                        "description": "User registry",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "photo",
+                        "in": "formData",
+                        "description": "User profile photo",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "shift_id",
+                        "in": "formData",
+                        "description": "User shift",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "role_id",
+                        "in": "formData",
+                        "description": "User role",
+                        "required": false,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Deletes a user",
+                "description": "Deletes a user",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "default": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Authentication": {
+            "title": "Authentication model",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "User": {
+            "title": "User model",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "securityDefinitions": {
+        "default": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Autentica\u00e7\u00e3o"
+        },
+        {
+            "name": "Users",
+            "description": "Usu\u00e1rios"
+        }
+    ]
+}
